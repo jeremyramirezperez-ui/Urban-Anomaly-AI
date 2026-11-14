@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
 ![YOLO](https://img.shields.io/badge/YOLO11-Ultralytics-111F68)
-![OpenCV](https://img.shields.io/badge/OpenCV-visión-5C3EE8?logo=opencv&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-visi%C3%B3n-5C3EE8?logo=opencv&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-backend-009688?logo=fastapi&logoColor=white)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-BD-CC2927?logo=microsoftsqlserver&logoColor=white)
 
