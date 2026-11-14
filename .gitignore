@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+securityappcr.db
+*.db-journal
+.pytest_cache/
+backend/recursos/capturas/*.jpg
+backend/recursos/correos_simulados/*.eml
+# El modelo puede mantenerse fuera de Git si el repositorio tiene límite.
+# backend/recursos/modelo_yolo/yolo11n.pt
+
+/yolo11n.pt
+.idea/ 

@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block titulo %}
+Dashboard | SecurityAPPCR
+{% endblock %}
+
+{% block estilos_adicionales %}
+<link
+  rel="stylesheet"
+  href="/static/css/dashboard.css"
+>
+{% endblock %}
+
+{% block contenido %}
+
+<div class="titulo-pagina">
+  <div>
+    <h1>Dashboard de estadísticas</h1>
+
+    <p>
+      Métricas reales del sistema, obtenidas directamente de la base de datos.
+    </p>
+  </div>
+
+  <button
+    id="btn-actualizar"
+    class="boton secundario"
+    type="button"
+  >
+    Actualizar
+  </button>
+</div>
+
+<section class="panel db-filtros">
+  <label>
+    Desde
+    <input
+      type="date"
+      id="filtro-desde"
+    >
+  </label>
+
+  <label>
+    Hasta
+    <input
+      type="date"
+      id="filtro-hasta"
+    >
+  </label>
+
+  <button
+    id="btn-filtrar"
+    class="boton"
+    type="button"
+  >
+    Filtrar
+  </button>
+
+  <button
+    id="btn-limpiar-filtro"
+    class="boton secundario"
+    type="button"
+  >
+    Limpiar filtro
+  </button>
+</section>
+
+<div
+  id="resumen"
+  class="tarjetas resumen"
+>
+  <!-- El resumen se carga mediante JavaScript -->
+</div>
+
+<section class="panel">
+  <h2>Alertas por tipo</h2>
+
+  <div
+    id="grafico-tipo"
+    class="db-grafico"
+  >
+    <!-- Se carga mediante JavaScript -->
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Alertas por estado</h2>
+
+  <div
+    id="grafico-estado"
+    class="db-grafico"
+  >
+    <!-- Se carga mediante JavaScript -->
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Alertas por nivel</h2>
+
+  <div
+    id="grafico-nivel"
+    class="db-grafico"
+  >
+    <!-- Se carga mediante JavaScript -->
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Evolución diaria</h2>
+
+  <div
+    id="grafico-evolucion"
+    class="db-grafico db-grafico-evolucion"
+  >
+    <!-- Se carga mediante JavaScript -->
+  </div>
+</section>
+
+{% endblock %}
+
+{% block scripts_adicionales %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

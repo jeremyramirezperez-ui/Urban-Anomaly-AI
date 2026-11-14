@@ -1,0 +1,762 @@
+{% extends "layout.html" %}
+
+{% block titulo %}
+Configuración | SecurityAPPCR
+{% endblock %}
+
+
+{% block estilos_adicionales %}
+<link
+  rel="stylesheet"
+  href="/static/css/configuracion.css"
+>
+{% endblock %}
+
+
+{% block contenido %}
+
+<div class="pagina-configuracion">
+
+  <div class="configuracion-contenedor">
+
+    <!-- ==================================================
+         ENCABEZADO
+         ================================================== -->
+
+    <div class="configuracion-encabezado">
+      <h1>Configuración del monitoreo</h1>
+
+      <p>
+        Configure los parámetros utilizados por el sistema
+        para analizar el monitoreo y generar alertas.
+      </p>
+    </div>
+
+
+    <form
+      id="form-configuracion"
+      class="configuracion-formulario"
+    >
+
+      <!-- ==================================================
+           1. CONFIGURACIÓN GENERAL
+           ================================================== -->
+
+      <section class="configuracion-seccion">
+
+        <div class="seccion-encabezado">
+
+          <div class="seccion-titulo">
+
+            <div class="seccion-icono">
+              01
+            </div>
+
+            <div class="seccion-texto">
+              <h2>Configuración general</h2>
+
+              <p>
+                Parámetros principales utilizados durante
+                el análisis del monitoreo.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="configuracion-grid">
+
+          <div class="configuracion-campo">
+
+            <label for="nombreZona">
+              Nombre de la zona
+            </label>
+
+            <input
+              id="nombreZona"
+              name="nombreZona"
+              type="text"
+              required
+            >
+
+            <p class="campo-ayuda">
+              Nombre utilizado para identificar el área monitoreada.
+            </p>
+
+          </div>
+
+
+          <div class="configuracion-campo">
+
+            <label for="limitePersonas">
+              Límite de personas
+            </label>
+
+            <input
+              id="limitePersonas"
+              name="limitePersonas"
+              type="number"
+              min="0"
+              max="50"
+              required
+            >
+
+            <p class="campo-ayuda">
+              Al superar este valor se puede generar una alerta
+              de aglomeración.
+            </p>
+
+          </div>
+
+
+          <div class="configuracion-campo">
+
+            <label for="segundosPermanencia">
+              Tiempo de permanencia
+            </label>
+
+            <div class="campo-unidad">
+
+              <input
+                id="segundosPermanencia"
+                name="segundosPermanencia"
+                type="number"
+                min="2"
+                max="3600"
+                required
+              >
+
+              <span>segundos</span>
+
+            </div>
+
+            <p class="campo-ayuda">
+              Tiempo que una persona debe permanecer visible
+              para generar la alerta correspondiente.
+            </p>
+
+          </div>
+
+
+          <div class="configuracion-campo">
+
+            <label for="cooldownSegundos">
+              Enfriamiento entre alertas
+            </label>
+
+            <div class="campo-unidad">
+
+              <input
+                id="cooldownSegundos"
+                name="cooldownSegundos"
+                type="number"
+                min="5"
+                max="3600"
+                required
+              >
+
+              <span>segundos</span>
+
+            </div>
+
+            <p class="campo-ayuda">
+              Evita generar repetidamente la misma alerta
+              durante un periodo corto.
+            </p>
+
+          </div>
+
+
+          <div class="configuracion-campo">
+
+            <label for="confianzaMinima">
+              Confianza mínima
+            </label>
+
+            <input
+              id="confianzaMinima"
+              name="confianzaMinima"
+              type="number"
+              step="0.05"
+              min="0.1"
+              max="0.95"
+              required
+            >
+
+            <p class="campo-ayuda">
+              Nivel mínimo de confianza utilizado para aceptar
+              una detección de persona.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================================
+           2. ALERTAS
+           ================================================== -->
+
+      <section class="configuracion-seccion">
+
+        <div class="seccion-encabezado">
+
+          <div class="seccion-titulo">
+
+            <div class="seccion-icono">
+              02
+            </div>
+
+            <div class="seccion-texto">
+
+              <h2>Alertas y detecciones</h2>
+
+              <p>
+                Controle la generación general de alertas
+                y las detecciones especiales del sistema.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="detecciones-grid">
+
+          <!-- Alertas generales -->
+
+          <div class="opcion-switch">
+
+            <div class="opcion-switch-info">
+
+              <strong>
+                Alertas activas
+              </strong>
+
+              <small>
+                Interruptor general para permitir alertas,
+                capturas y notificaciones.
+              </small>
+
+            </div>
+
+
+            <label
+              class="switch"
+              aria-label="Activar alertas"
+            >
+
+              <input
+                name="alertasActivas"
+                type="checkbox"
+              >
+
+              <span class="switch-control"></span>
+
+            </label>
+
+          </div>
+
+
+          <!-- Fuego -->
+
+          <div class="opcion-switch bloque-fuego">
+
+            <div class="opcion-switch-info">
+
+              <strong>
+                Detección de fuego
+              </strong>
+
+              <small>
+                Activa o desactiva el análisis de posibles
+                situaciones de fuego.
+              </small>
+
+            </div>
+
+
+            <label
+              class="switch"
+              aria-label="Activar detección de fuego"
+            >
+
+              <input
+                name="fuegoActivo"
+                type="checkbox"
+              >
+
+              <span class="switch-control"></span>
+
+            </label>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================================
+           3. OBJETOS ABANDONADOS
+           ================================================== -->
+
+      <section class="configuracion-seccion">
+
+        <div class="seccion-encabezado">
+
+          <div class="seccion-titulo">
+
+            <div class="seccion-icono">
+              03
+            </div>
+
+            <div class="seccion-texto">
+
+              <h2>Objetos abandonados</h2>
+
+              <p>
+                Configure la detección de objetos que permanezcan
+                sin una persona cerca.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="objetos-contenedor">
+
+          <div class="objetos-informacion">
+
+            <h3>
+              Objetos reconocidos
+            </h3>
+
+            <p>
+              El sistema identifica los siguientes tipos
+              de objetos.
+            </p>
+
+
+            <div class="objetos-detectados">
+
+              <span class="objeto-etiqueta">
+                Mochila
+              </span>
+
+              <span class="objeto-etiqueta">
+                Bolso
+              </span>
+
+              <span class="objeto-etiqueta">
+                Maleta
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="objetos-configuracion">
+
+            <div class="opcion-switch">
+
+              <div class="opcion-switch-info">
+
+                <strong>
+                  Detección de objetos abandonados
+                </strong>
+
+                <small>
+                  Al desactivarla, el sistema deja de analizar
+                  mochila, bolso y maleta.
+                </small>
+
+              </div>
+
+
+              <label
+                class="switch"
+                aria-label="Activar detección de objetos abandonados"
+              >
+
+                <input
+                  name="objetoAbandonadoActivo"
+                  type="checkbox"
+                >
+
+                <span class="switch-control"></span>
+
+              </label>
+
+            </div>
+
+
+            <div class="configuracion-campo">
+
+              <label for="segundosObjetoAbandonado">
+                Tiempo sin una persona cerca
+              </label>
+
+              <div class="campo-unidad">
+
+                <input
+                  id="segundosObjetoAbandonado"
+                  name="segundosObjetoAbandonado"
+                  type="number"
+                  min="5"
+                  max="3600"
+                  required
+                >
+
+                <span>segundos</span>
+
+              </div>
+
+
+              <p class="campo-ayuda">
+                Cuando uno de los objetos permanece este tiempo
+                sin una persona cerca, se genera la alerta.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================================
+           4. ZONA RESTRINGIDA
+           ================================================== -->
+
+      <section class="configuracion-seccion">
+
+        <div class="seccion-encabezado">
+
+          <div class="seccion-titulo">
+
+            <div class="seccion-icono">
+              04
+            </div>
+
+            <div class="seccion-texto">
+
+              <h2>Zona restringida</h2>
+
+              <p>
+                Dibuje el área que será considerada
+                como zona restringida.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="zona-layout">
+
+          <!-- Área negra para dibujar -->
+
+          <div class="zona-camara">
+
+            <div id="contenedor-camara">
+
+              <div
+                id="vista-camara"
+                role="img"
+                aria-label="Área para dibujar la zona restringida"
+              ></div>
+
+            </div>
+
+
+            <div class="zona-instruccion">
+              Mantenga presionado el mouse y arrastre sobre
+              el recuadro negro para dibujar la zona restringida.
+              Las coordenadas se actualizarán automáticamente.
+            </div>
+
+          </div>
+
+
+          <!-- Controles de zona -->
+
+          <div class="zona-controles">
+
+            <div class="opcion-switch">
+
+              <div class="opcion-switch-info">
+
+                <strong>
+                  Activar zona restringida
+                </strong>
+
+                <small>
+                  Genera una alerta cuando una persona ingresa
+                  al área definida.
+                </small>
+
+              </div>
+
+
+              <label
+                class="switch"
+                aria-label="Activar zona restringida"
+              >
+
+                <input
+                  name="zonaRestringidaActiva"
+                  type="checkbox"
+                >
+
+                <span class="switch-control"></span>
+
+              </label>
+
+            </div>
+
+
+            <div class="configuracion-campo">
+
+              <label>
+                Coordenadas de la zona
+              </label>
+
+              <p class="campo-ayuda">
+                Valores normalizados entre 0 y 1.
+              </p>
+
+            </div>
+
+
+            <div class="coordenadas-grid">
+
+              <div class="configuracion-campo">
+
+                <label for="zonaX1">
+                  X1
+                </label>
+
+                <input
+                  id="zonaX1"
+                  name="zonaX1"
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  max="1"
+                >
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="zonaY1">
+                  Y1
+                </label>
+
+                <input
+                  id="zonaY1"
+                  name="zonaY1"
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  max="1"
+                >
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="zonaX2">
+                  X2
+                </label>
+
+                <input
+                  id="zonaX2"
+                  name="zonaX2"
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  max="1"
+                >
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="zonaY2">
+                  Y2
+                </label>
+
+                <input
+                  id="zonaY2"
+                  name="zonaY2"
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  max="1"
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================================
+           5. HORARIO
+           ================================================== -->
+
+      <section class="configuracion-seccion">
+
+        <div class="seccion-encabezado">
+
+          <div class="seccion-titulo">
+
+            <div class="seccion-icono">
+              05
+            </div>
+
+            <div class="seccion-texto">
+
+              <h2>Horario permitido</h2>
+
+              <p>
+                Establezca el horario en el que se permite
+                presencia dentro de la zona monitoreada.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="horario-contenido">
+
+          <div class="opcion-switch">
+
+            <div class="opcion-switch-info">
+
+              <strong>
+                Control de horario
+              </strong>
+
+              <small>
+                Permite generar alertas cuando existe presencia
+                fuera del horario establecido.
+              </small>
+
+            </div>
+
+
+            <label
+              class="switch"
+              aria-label="Activar control de horario"
+            >
+
+              <input
+                name="horarioActivo"
+                type="checkbox"
+              >
+
+              <span class="switch-control"></span>
+
+            </label>
+
+          </div>
+
+
+          <div class="configuracion-campo">
+
+            <label for="horaInicio">
+              Hora de inicio
+            </label>
+
+            <input
+              id="horaInicio"
+              name="horaInicio"
+              type="time"
+            >
+
+          </div>
+
+
+          <div class="configuracion-campo">
+
+            <label for="horaFin">
+              Hora de finalización
+            </label>
+
+            <input
+              id="horaFin"
+              name="horaFin"
+              type="time"
+            >
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================================
+           MENSAJES Y GUARDAR
+           ================================================== -->
+
+      <div
+        id="mensaje"
+        class="mensaje neutro"
+      ></div>
+
+
+      <div class="configuracion-acciones">
+
+        <button
+          class="boton primario boton-guardar-configuracion"
+          type="submit"
+        >
+          Guardar configuración
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts_adicionales %}
+
+<script src="/static/js/zona_visual.js"></script>
+<script src="/static/js/configuracion.js"></script>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block titulo %}
+Correos | SecurityAPPCR
+{% endblock %}
+
+{% block contenido %}
+
+<div class="titulo-pagina">
+  <div>
+    <h1>Destinatarios de alertas</h1>
+
+    <p>
+      Registre los correos que recibirán las alertas generadas por el sistema.
+    </p>
+  </div>
+</div>
+
+<section class="dos-columnas">
+
+  <form
+    id="form-destinatario"
+    class="panel"
+  >
+    <label>
+      Nombre
+
+      <input
+        name="nombre"
+        type="text"
+        required
+      >
+    </label>
+
+    <label>
+      Correo
+
+      <input
+        name="correo"
+        type="email"
+        required
+      >
+    </label>
+
+    <button
+      class="boton primario"
+      type="submit"
+    >
+      Registrar correo
+    </button>
+
+    <button
+      id="btn-probar"
+      class="boton secundario"
+      type="button"
+    >
+      Enviar correo de prueba
+    </button>
+
+    <div
+      id="mensaje"
+      class="mensaje neutro"
+    ></div>
+  </form>
+
+  <div class="panel">
+    <h2>Correos registrados</h2>
+
+    <div id="lista-destinatarios">
+      <!-- Los destinatarios se cargan mediante JavaScript -->
+    </div>
+  </div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts_adicionales %}
+<script src="/static/js/destinatarios.js"></script>
+{% endblock %}

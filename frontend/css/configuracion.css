@@ -1,0 +1,905 @@
+/* =========================================================
+   SECURITYAPPCR
+   Página: Configuración
+   Archivo exclusivo para la pantalla de configuración.
+   No modifica los estilos generales del sistema.
+   ========================================================= */
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.pagina-configuracion {
+  width: 100%;
+}
+
+.pagina-configuracion * {
+  box-sizing: border-box;
+}
+
+.pagina-configuracion .configuracion-contenedor {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+.pagina-configuracion .configuracion-encabezado {
+  margin-bottom: 24px;
+}
+
+.pagina-configuracion .configuracion-encabezado h1 {
+  margin: 0 0 6px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.pagina-configuracion .configuracion-encabezado p {
+  margin: 0;
+  color: #667085;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.pagina-configuracion .configuracion-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+
+/* =========================================================
+   TARJETAS / SECCIONES
+   ========================================================= */
+
+.pagina-configuracion .configuracion-seccion {
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgba(16, 24, 40, 0.05);
+}
+
+.pagina-configuracion .configuracion-seccion:hover {
+  border-color: #d0d5dd;
+}
+
+.pagina-configuracion .seccion-encabezado {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.pagina-configuracion .seccion-titulo {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.pagina-configuracion .seccion-icono {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  background: #eef6ff;
+  color: #175cd3;
+
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.pagina-configuracion .seccion-texto h2 {
+  margin: 0 0 4px;
+  color: #101828;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.pagina-configuracion .seccion-texto p {
+  margin: 0;
+  color: #667085;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   GRID GENERAL
+   ========================================================= */
+
+.pagina-configuracion .configuracion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pagina-configuracion .configuracion-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pagina-configuracion .campo-completo {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   CAMPOS
+   ========================================================= */
+
+.pagina-configuracion .configuracion-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pagina-configuracion .configuracion-campo label {
+  color: #344054;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.pagina-configuracion .configuracion-campo input,
+.pagina-configuracion .configuracion-campo select,
+.pagina-configuracion .configuracion-campo textarea {
+  width: 100%;
+  min-height: 44px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #101828;
+
+  font: inherit;
+  font-size: 0.92rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.pagina-configuracion .configuracion-campo input:hover,
+.pagina-configuracion .configuracion-campo select:hover,
+.pagina-configuracion .configuracion-campo textarea:hover {
+  border-color: #98a2b3;
+}
+
+.pagina-configuracion .configuracion-campo input:focus,
+.pagina-configuracion .configuracion-campo select:focus,
+.pagina-configuracion .configuracion-campo textarea:focus {
+  border-color: #1570ef;
+  box-shadow: 0 0 0 3px rgba(21, 112, 239, 0.12);
+}
+
+.pagina-configuracion .configuracion-campo input:disabled {
+  background: #f2f4f7;
+  color: #98a2b3;
+  cursor: not-allowed;
+}
+
+.pagina-configuracion .campo-ayuda {
+  margin: 0;
+  color: #667085;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   CAMPOS CON UNIDAD
+   ========================================================= */
+
+.pagina-configuracion .campo-unidad {
+  position: relative;
+}
+
+.pagina-configuracion .campo-unidad input {
+  padding-right: 75px;
+}
+
+.pagina-configuracion .campo-unidad span {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+
+  color: #667085;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SWITCH / ACTIVAR - DESACTIVAR
+   ========================================================= */
+
+.pagina-configuracion .opcion-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  min-height: 66px;
+
+  padding: 13px 15px;
+
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+
+  background: #f9fafb;
+}
+
+.pagina-configuracion .opcion-switch + .opcion-switch {
+  margin-top: 12px;
+}
+
+.pagina-configuracion .opcion-switch-info {
+  min-width: 0;
+}
+
+.pagina-configuracion .opcion-switch-info strong {
+  display: block;
+  margin-bottom: 3px;
+
+  color: #344054;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.pagina-configuracion .opcion-switch-info small {
+  display: block;
+
+  color: #667085;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.pagina-configuracion .switch {
+  position: relative;
+
+  display: inline-block;
+
+  width: 48px;
+  height: 26px;
+
+  flex-shrink: 0;
+}
+
+.pagina-configuracion .switch input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.pagina-configuracion .switch-control {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 999px;
+
+  background: #d0d5dd;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.pagina-configuracion .switch-control::before {
+  content: "";
+
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow: 0 1px 4px rgba(16, 24, 40, 0.2);
+
+  transition: transform 0.2s ease;
+}
+
+.pagina-configuracion .switch input:checked + .switch-control {
+  background: #1570ef;
+}
+
+.pagina-configuracion .switch input:checked + .switch-control::before {
+  transform: translateX(22px);
+}
+
+.pagina-configuracion .switch input:focus-visible + .switch-control {
+  outline: 3px solid rgba(21, 112, 239, 0.2);
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   DETECCIONES
+   ========================================================= */
+
+.pagina-configuracion .detecciones-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+
+/* =========================================================
+   OBJETOS ABANDONADOS
+   ========================================================= */
+
+.pagina-configuracion .objetos-contenedor {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.pagina-configuracion .objetos-informacion {
+  padding: 18px;
+
+  border: 1px solid #dbeafe;
+  border-radius: 13px;
+
+  background: #f5f9ff;
+}
+
+.pagina-configuracion .objetos-informacion h3 {
+  margin: 0 0 7px;
+
+  color: #1849a9;
+  font-size: 0.98rem;
+}
+
+.pagina-configuracion .objetos-informacion p {
+  margin: 0 0 14px;
+
+  color: #475467;
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+.pagina-configuracion .objetos-detectados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pagina-configuracion .objeto-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 7px 10px;
+
+  border: 1px solid #b2ddff;
+  border-radius: 999px;
+
+  background: #eff8ff;
+  color: #175cd3;
+
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.pagina-configuracion .objeto-etiqueta::before {
+  content: "✓";
+
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.pagina-configuracion .objetos-configuracion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+/* =========================================================
+   FUEGO
+   ========================================================= */
+
+.pagina-configuracion .bloque-fuego {
+  border-color: #fedf89;
+  background: #fffcf5;
+}
+
+
+/* =========================================================
+   ZONA RESTRINGIDA
+   ========================================================= */
+
+.pagina-configuracion .zona-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.4fr) minmax(280px, 0.6fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.pagina-configuracion .zona-camara {
+  min-width: 0;
+}
+
+
+/*
+  Contenedor del área de dibujo.
+
+  Es un espacio fijo negro.
+  ZonaVisual colocará su canvas dentro de este contenedor.
+*/
+.pagina-configuracion #contenedor-camara {
+  position: relative;
+
+  width: 100%;
+  height: 360px;
+
+  overflow: hidden;
+
+  border: 1px solid #344054;
+  border-radius: 14px;
+
+  background: #080b10;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 5px 16px rgba(16, 24, 40, 0.1);
+
+  user-select: none;
+}
+
+
+/*
+  Superficie negra base.
+
+  Ya no representa una cámara ni una imagen.
+  Solo proporciona el tamaño sobre el cual se calculan
+  las coordenadas normalizadas de la zona.
+*/
+.pagina-configuracion #vista-camara {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  background: #080b10;
+
+  pointer-events: none;
+}
+
+
+/*
+  Canvas creado por zona_visual.js.
+
+  Debe quedar por encima del fondo negro y recibir
+  los eventos del mouse para poder dibujar.
+*/
+.pagina-configuracion #contenedor-camara canvas {
+  position: absolute !important;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 5;
+
+  cursor: crosshair;
+
+  touch-action: none;
+}
+
+
+/* Pequeño borde interno visual */
+.pagina-configuracion #contenedor-camara::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  border-radius: 13px;
+
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.02);
+
+  pointer-events: none;
+}
+
+
+/* Instrucción debajo del área negra */
+
+.pagina-configuracion .zona-instruccion {
+  margin-top: 10px;
+
+  padding: 10px 12px;
+
+  border-radius: 9px;
+
+  background: #f2f4f7;
+  color: #475467;
+
+  font-size: 0.79rem;
+  line-height: 1.45;
+}
+
+
+/* Controles laterales */
+
+.pagina-configuracion .zona-controles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+/* Coordenadas */
+
+.pagina-configuracion .coordenadas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+
+/* =========================================================
+   HORARIO
+   ========================================================= */
+
+.pagina-configuracion .horario-contenido {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 1fr)
+    repeat(2, minmax(180px, 0.6fr));
+
+  gap: 18px;
+
+  align-items: end;
+}
+
+
+/* =========================================================
+   MENSAJES DE CONFIGURACIÓN
+   ========================================================= */
+
+.pagina-configuracion #mensaje {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+
+  width: calc(100% - 40px);
+  max-width: 430px;
+
+  margin: 0;
+  padding: 22px 24px;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid #d0d5dd;
+  border-radius: 16px;
+
+  background: #ffffff;
+  color: #344054;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+
+  box-shadow:
+    0 20px 45px rgba(16, 24, 40, 0.22),
+    0 8px 18px rgba(16, 24, 40, 0.12);
+
+  animation: aparecer-mensaje-configuracion 0.22s ease;
+}
+
+
+/* Si no tiene mensaje, no aparece */
+
+.pagina-configuracion #mensaje:empty {
+  display: none;
+}
+
+
+/* Guardado correcto */
+
+.pagina-configuracion #mensaje.exito {
+  color: #067647;
+
+  background: #ecfdf3;
+
+  border-color: #abefc6;
+}
+
+
+/* Error */
+
+.pagina-configuracion #mensaje.error {
+  color: #b42318;
+
+  background: #fef3f2;
+
+  border-color: #fecdca;
+}
+
+
+/* Advertencia */
+
+.pagina-configuracion #mensaje.advertencia {
+  color: #b54708;
+
+  background: #fffaeb;
+
+  border-color: #fedf89;
+}
+
+
+/* Mensaje neutro */
+
+.pagina-configuracion #mensaje.neutro {
+  color: #344054;
+
+  background: #ffffff;
+
+  border-color: #d0d5dd;
+}
+
+
+/* Animación */
+
+@keyframes aparecer-mensaje-configuracion {
+
+  from {
+    opacity: 0;
+    transform: translate(-50%, -46%) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   ACCIONES
+   ========================================================= */
+
+.pagina-configuracion .configuracion-acciones {
+  position: sticky;
+  bottom: 14px;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+
+  padding: 14px 16px;
+
+  border: 1px solid #e4e7ec;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow: 0 8px 28px rgba(16, 24, 40, 0.12);
+
+  backdrop-filter: blur(8px);
+}
+
+.pagina-configuracion .boton-guardar-configuracion {
+  min-width: 180px;
+  min-height: 44px;
+
+  padding: 10px 20px;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: #1570ef;
+  color: #ffffff;
+
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.pagina-configuracion .boton-guardar-configuracion:hover {
+  background: #175cd3;
+
+  box-shadow:
+    0 4px 12px rgba(21, 112, 239, 0.25);
+}
+
+.pagina-configuracion .boton-guardar-configuracion:active {
+  transform: translateY(1px);
+}
+
+.pagina-configuracion .boton-guardar-configuracion:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   DIVISORES / INFORMACIÓN
+   ========================================================= */
+
+.pagina-configuracion .separador {
+  width: 100%;
+  height: 1px;
+
+  margin: 5px 0;
+
+  background: #eaecf0;
+}
+
+.pagina-configuracion .aviso-configuracion {
+  display: flex;
+  gap: 10px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #b2ddff;
+  border-radius: 10px;
+
+  background: #eff8ff;
+  color: #1849a9;
+
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   ESTADOS DESACTIVADOS
+   ========================================================= */
+
+.pagina-configuracion .grupo-desactivado {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .pagina-configuracion .configuracion-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pagina-configuracion .objetos-contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  .pagina-configuracion .zona-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pagina-configuracion .horario-contenido {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pagina-configuracion .horario-contenido .opcion-switch {
+    grid-column: 1 / -1;
+  }
+
+  .pagina-configuracion #contenedor-camara {
+    height: 330px;
+  }
+}
+
+
+@media (max-width: 760px) {
+
+  .pagina-configuracion .configuracion-seccion {
+    padding: 17px;
+    border-radius: 13px;
+  }
+
+  .pagina-configuracion .configuracion-grid,
+  .pagina-configuracion .configuracion-grid-3,
+  .pagina-configuracion .detecciones-grid,
+  .pagina-configuracion .horario-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .pagina-configuracion .seccion-encabezado {
+    flex-direction: column;
+  }
+
+  .pagina-configuracion .opcion-switch {
+    align-items: flex-start;
+  }
+
+  .pagina-configuracion .coordenadas-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pagina-configuracion #contenedor-camara {
+    height: 280px;
+  }
+
+  .pagina-configuracion .configuracion-acciones {
+    position: static;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .pagina-configuracion .boton-guardar-configuracion {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .pagina-configuracion .coordenadas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pagina-configuracion .objetos-detectados {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagina-configuracion .configuracion-encabezado h1 {
+    font-size: 1.5rem;
+  }
+
+  .pagina-configuracion #contenedor-camara {
+    height: 230px;
+  }
+}

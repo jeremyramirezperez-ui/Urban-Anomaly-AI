@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>
+    {% block titulo %}
+    SecurityAPPCR
+    {% endblock %}
+  </title>
+
+  <meta
+    name="description"
+    content="Sistema inteligente de monitoreo y detección de anomalías mediante visión artificial."
+  >
+
+  <!-- CSS general para todas las páginas -->
+  <link
+    rel="stylesheet"
+    href="/static/css/estilos.css"
+  >
+
+  <!-- CSS específico de cada página -->
+  {% block estilos_adicionales %}
+  {% endblock %}
+</head>
+
+<body>
+
+  <!-- Cabecera compartida -->
+  <header class="cabecera">
+
+    <a
+      class="marca"
+      href="/"
+      aria-label="Ir al inicio"
+    >
+      <img
+        src="/static/imagenes/logo.png"
+        alt="Logo de SecurityAPPCR"
+      >
+
+      <span>SecurityAPPCR</span>
+    </a>
+
+    <nav aria-label="Navegación principal">
+
+      <a
+        href="/"
+        {% if request.url.path == "/" %}
+        class="enlace-activo"
+        aria-current="page"
+        {% endif %}
+      >
+        Inicio
+      </a>
+
+      <a
+        href="/dashboard"
+        {% if request.url.path == "/dashboard" %}
+        class="enlace-activo"
+        aria-current="page"
+        {% endif %}
+      >
+        Dashboard
+      </a>
+
+      <a
+        href="/monitoreo"
+        {% if request.url.path == "/monitoreo" %}
+        class="enlace-activo"
+        aria-current="page"
+        {% endif %}
+      >
+        Monitoreo
+      </a>
+
+      <a
+        href="/configuracion"
+        {% if request.url.path == "/configuracion" %}
+        class="enlace-activo"
+        aria-current="page"
+        {% endif %}
+      >
+        Configuración
+      </a>
+
+      <a
+        href="/destinatarios"
+        {% if request.url.path == "/destinatarios" %}
+        class="enlace-activo"
+        aria-current="page"
+        {% endif %}
+      >
+        Correos
+      </a>
+
+      <a
+        href="/historial"
+        {% if request.url.path == "/historial" %}
+        class="enlace-activo"
+        aria-current="page"
+        {% endif %}
+      >
+        Historial
+      </a>
+
+    </nav>
+
+  </header>
+
+  <!-- Contenido propio de cada página -->
+  <main class="contenedor">
+
+    {% block contenido %}
+    {% endblock %}
+
+  </main>
+
+  <!-- Footer compartido -->
+  <footer class="pie-pagina">
+
+    <div class="pie-contenido">
+
+      <div>
+        <strong>SecurityAPPCR</strong>
+
+        <p>
+          Proyecto Urban Anomaly AI · BD-141 Big Data
+        </p>
+      </div>
+
+      <div class="pie-centro">
+        <p>Colegio Universitario de Cartago</p>
+        <p>Carrera de Big Data</p>
+        <p>II Cuatrimestre, 2026</p>
+      </div>
+
+      <nav
+        class="pie-enlaces"
+        aria-label="Navegación del pie de página"
+      >
+        <a href="/">Inicio</a>
+        <a href="/monitoreo">Monitoreo</a>
+        <a href="/configuracion">Configuración</a>
+        <a href="/destinatarios">Correos</a>
+        <a href="/historial">Historial</a>
+        <a href="/dashboard">Dashboard</a>
+      </nav>
+
+    </div>
+
+  </footer>
+
+  <!-- JavaScript general para todas las páginas -->
+  <script src="/static/js/api.js"></script>
+
+  <!-- JavaScript específico de cada página -->
+  {% block scripts_adicionales %}
+  {% endblock %}
+
+</body>
+
+</html>

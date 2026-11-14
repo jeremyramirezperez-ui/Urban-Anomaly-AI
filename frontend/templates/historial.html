@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block titulo %}
+Historial | SecurityAPPCR
+{% endblock %}
+
+{% block contenido %}
+
+<div class="titulo-pagina">
+  <div>
+    <h1>Historial de alertas</h1>
+
+    <p>
+      Las alertas se guardan antes de intentar enviar el correo.
+    </p>
+  </div>
+
+  <button
+    id="btn-actualizar"
+    class="boton secundario"
+    type="button"
+  >
+    Actualizar
+  </button>
+</div>
+
+<div
+  id="resumen"
+  class="tarjetas resumen"
+>
+  <!-- El resumen se carga mediante JavaScript -->
+</div>
+
+<section class="panel tabla-contenedor">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Mensaje</th>
+        <th>Fecha</th>
+        <th>Correo</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody id="tabla-alertas">
+      <!-- Las alertas se cargan mediante JavaScript -->
+    </tbody>
+  </table>
+</section>
+
+<div
+  class="paginacion"
+  aria-label="Paginación del historial"
+>
+  <button
+    id="btn-anterior"
+    class="boton secundario"
+    type="button"
+    disabled
+  >
+    Anterior
+  </button>
+
+  <span
+    id="informacion-pagina"
+    aria-live="polite"
+  >
+    Página 1 de 1
+  </span>
+
+  <button
+    id="btn-siguiente"
+    class="boton secundario"
+    type="button"
+    disabled
+  >
+    Siguiente
+  </button>
+</div>
+
+{% endblock %}
+
+{% block scripts_adicionales %}
+<script src="/static/js/historial.js"></script>
+{% endblock %}

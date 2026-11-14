@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block titulo %}
+Monitoreo | SecurityAPPCR
+{% endblock %}
+
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="/static/css/monitoreo.css">
+{% endblock %}
+
+{% block contenido %}
+
+<div class="titulo-pagina">
+
+  <div>
+    <h1>Monitoreo en tiempo real</h1>
+
+    <p>
+      La imagen se analiza cada pocos segundos y únicamente se buscan personas.
+    </p>
+  </div>
+
+  <div class="acciones">
+    <button
+      id="btn-iniciar"
+      class="boton primario"
+      type="button"
+    >
+      Iniciar cámara
+    </button>
+
+    <button
+      id="btn-detener"
+      class="boton secundario"
+      type="button"
+      disabled
+    >
+      Detener
+    </button>
+  </div>
+
+</div>
+
+<section class="rejilla-monitoreo">
+
+  <div class="visor">
+
+    <video
+      id="video"
+      autoplay
+      playsinline
+      muted
+    ></video>
+
+    <canvas id="overlay"></canvas>
+
+    <canvas
+      id="captura"
+      hidden
+    ></canvas>
+
+    <div
+      id="visor-vacio"
+      class="visor-vacio"
+    >
+      Cámara apagada
+    </div>
+
+  </div>
+
+  <aside class="panel metricas">
+
+    <div class="metrica">
+      <span>Personas</span>
+      <strong id="cantidad">0</strong>
+    </div>
+
+    <div class="metrica">
+      <span>Límite</span>
+      <strong id="limite">--</strong>
+    </div>
+
+    <div class="metrica">
+      <span>Motor</span>
+
+      <strong
+        id="motor"
+        class="texto-pequeno"
+      >
+        --
+      </strong>
+    </div>
+
+    <div class="metrica">
+      <span>Estado</span>
+      <strong id="estado">APAGADA</strong>
+    </div>
+
+  </aside>
+
+</section>
+
+<section class="panel">
+
+  <h2>Eventos y alertas</h2>
+
+  <div
+    id="mensaje-monitoreo"
+    class="mensaje neutro"
+  >
+    Inicie la cámara para comenzar.
+  </div>
+
+  <div
+    id="lista-eventos"
+    class="lista-eventos"
+  ></div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts_adicionales %}
+<script src="/static/js/camara.js"></script>
+<script src="/static/js/monitoreo.js"></script>
+{% endblock %}

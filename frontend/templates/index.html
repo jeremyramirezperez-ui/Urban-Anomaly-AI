@@ -1,0 +1,621 @@
+{% extends "layout.html" %}
+
+{% block titulo %}
+Inicio | SecurityAPPCR
+{% endblock %}
+
+{% block contenido %}
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero">
+
+  <div>
+
+    <span class="etiqueta">
+      SecurityAPPCR
+    </span>
+
+    <h1>
+      Monitoreo inteligente de personas
+    </h1>
+
+    <p>
+      Sistema de Big Data que utiliza una cámara web para detectar
+      personas, identificar situaciones anómalas y enviar alertas automáticas.
+    </p>
+
+    <div class="hero-botones">
+
+      <a
+        class="boton primario"
+        href="/monitoreo"
+      >
+        Iniciar monitoreo
+      </a>
+
+      <a
+        class="boton secundario"
+        href="/configuracion"
+      >
+        Configurar sistema
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- Estado del sistema -->
+
+  <aside class="panel-estado">
+
+    <h2>Estado del sistema</h2>
+
+    <p id="estado-api">
+      Consultando API...
+    </p>
+
+    <p>
+      Cámara:
+      <b id="estado-camara">--</b>
+    </p>
+
+    <p>
+      Personas:
+      <b id="conteo-personas">0</b>
+    </p>
+
+  </aside>
+
+</section>
+
+
+
+<!-- =========================================================
+     ACCESOS PRINCIPALES
+     ========================================================= -->
+
+<section class="tarjetas">
+
+  <a
+    class="tarjeta"
+    href="/monitoreo"
+  >
+
+    <h3>Monitoreo</h3>
+
+    <p>
+      Active la cámara y observe las detecciones en tiempo real.
+    </p>
+
+  </a>
+
+
+  <a
+    class="tarjeta"
+    href="/configuracion"
+  >
+
+    <h3>Configuración</h3>
+
+    <p>
+      Configure límites, permanencia, zonas, objetos y horarios.
+    </p>
+
+  </a>
+
+
+  <a
+    class="tarjeta"
+    href="/destinatarios"
+  >
+
+    <h3>Destinatarios</h3>
+
+    <p>
+      Registre los destinatarios de las alertas automáticas.
+    </p>
+
+  </a>
+
+
+  <a
+    class="tarjeta"
+    href="/historial"
+  >
+
+    <h3>Historial</h3>
+
+    <p>
+      Consulte las alertas y capturas almacenadas.
+    </p>
+
+  </a>
+
+</section>
+
+
+
+<!-- =========================================================
+     ALERTAS DEL SISTEMA
+     ========================================================= -->
+
+<section class="seccion-alertas-inicio">
+
+  <div class="encabezado-alertas-inicio">
+
+    <span class="etiqueta">
+      Detecciones
+    </span>
+
+    <h2>
+      Alertas del sistema
+    </h2>
+
+    <p>
+      SecurityAPPCR puede generar alertas automáticas ante
+      las siguientes situaciones detectadas durante el monitoreo.
+    </p>
+
+  </div>
+
+
+  <div class="grid-alertas-inicio">
+
+    <article class="alerta-inicio">
+
+      <span class="alerta-icono">
+        01
+      </span>
+
+      <div>
+        <h3>Aglomeración</h3>
+      </div>
+
+    </article>
+
+
+    <article class="alerta-inicio">
+
+      <span class="alerta-icono">
+        02
+      </span>
+
+      <div>
+        <h3>Permanencia prolongada</h3>
+      </div>
+
+    </article>
+
+
+    <article class="alerta-inicio">
+
+      <span class="alerta-icono">
+        03
+      </span>
+
+      <div>
+        <h3>Zona restringida</h3>
+      </div>
+
+    </article>
+
+
+    <article class="alerta-inicio">
+
+      <span class="alerta-icono">
+        04
+      </span>
+
+      <div>
+        <h3>Fuera de horario</h3>
+      </div>
+
+    </article>
+
+
+    <article class="alerta-inicio">
+
+      <span class="alerta-icono">
+        05
+      </span>
+
+      <div>
+        <h3>Objeto abandonado</h3>
+      </div>
+
+    </article>
+
+
+    <article class="alerta-inicio">
+
+      <span class="alerta-icono">
+        06
+      </span>
+
+      <div>
+        <h3>Fuego</h3>
+      </div>
+
+    </article>
+
+
+    <article class="alerta-inicio">
+
+      <span class="alerta-icono">
+        07
+      </span>
+
+      <div>
+        <h3>Cámara apagada</h3>
+      </div>
+
+    </article>
+
+
+    <article class="alerta-inicio">
+
+      <span class="alerta-icono">
+        08
+      </span>
+
+      <div>
+        <h3>Falla de cámara</h3>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     QUÉ HACE SECURITYAPPCR
+     ========================================================= -->
+
+<section class="seccion-informativa">
+
+  <div class="encabezado-seccion">
+
+    <span class="etiqueta">
+      Funcionamiento
+    </span>
+
+    <h2>
+      ¿Qué hace SecurityAPPCR?
+    </h2>
+
+    <p>
+      Analiza imágenes de una cámara web y aplica reglas configurables
+      para detectar situaciones que requieren atención.
+    </p>
+
+  </div>
+
+
+  <div class="caracteristicas">
+
+    <article class="caracteristica">
+
+      <span class="numero-paso">
+        1
+      </span>
+
+      <h3>
+        Detecta personas y objetos
+      </h3>
+
+      <p>
+        YOLO identifica personas y objetos visibles durante
+        el monitoreo.
+      </p>
+
+    </article>
+
+
+    <article class="caracteristica">
+
+      <span class="numero-paso">
+        2
+      </span>
+
+      <h3>
+        Evalúa anomalías
+      </h3>
+
+      <p>
+        Comprueba las reglas y condiciones configuradas
+        en el sistema.
+      </p>
+
+    </article>
+
+
+    <article class="caracteristica">
+
+      <span class="numero-paso">
+        3
+      </span>
+
+      <h3>
+        Genera alertas
+      </h3>
+
+      <p>
+        Guarda la evidencia en SQL Server y envía
+        correos automáticamente.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INFORMACIÓN DEL PROYECTO
+     ========================================================= -->
+
+<section class="informacion-proyecto">
+
+  <div>
+
+    <span class="etiqueta">
+      Proyecto académico
+    </span>
+
+    <h2>
+      Urban Anomaly AI
+    </h2>
+
+    <p>
+      Proyecto de la carrera de Big Data del Colegio Universitario
+      de Cartago, orientado a la aplicación de inteligencia artificial
+      y procesamiento de datos en situaciones de seguridad.
+    </p>
+
+  </div>
+
+
+  <div class="datos-proyecto">
+
+    <p>
+      <span>Institución</span>
+      <strong>Colegio Universitario de Cartago</strong>
+    </p>
+
+    <p>
+      <span>Carrera</span>
+      <strong>Big Data</strong>
+    </p>
+
+    <p>
+      <span>Curso</span>
+      <strong>BD-141 Big Data</strong>
+    </p>
+
+    <p>
+      <span>Cuatrimestre</span>
+      <strong>II Cuatrimestre, 2026</strong>
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EQUIPO
+     ========================================================= -->
+
+<section class="equipo">
+
+  <div class="encabezado-seccion">
+
+    <span class="etiqueta">
+      Equipo
+    </span>
+
+    <h2>
+      Equipo del proyecto
+    </h2>
+
+  </div>
+
+
+  <div class="lista-integrantes">
+
+
+    <!-- Andrey -->
+
+    <article class="integrante">
+
+      <div class="integrante-datos">
+
+        <span class="iniciales">
+          AC
+        </span>
+
+        <p>
+          Calderón Vega, Andrey
+        </p>
+
+      </div>
+
+      <a
+        class="boton-github"
+        href="https://github.com/andreyac1397"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <img
+          src="/static/imagenes/github.png"
+          alt="GitHub"
+        >
+
+        GitHub
+
+      </a>
+
+    </article>
+
+
+    <!-- Gabriel -->
+
+    <article class="integrante">
+
+      <div class="integrante-datos">
+
+        <span class="iniciales">
+          GS
+        </span>
+
+        <p>
+          Solano Molina, Gabriel
+        </p>
+
+      </div>
+
+      <a
+        class="boton-github"
+        href="https://github.com/GaboSM1507"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <img
+          src="/static/imagenes/github.png"
+          alt="GitHub"
+        >
+
+        GitHub
+
+      </a>
+
+    </article>
+
+
+    <!-- Luca -->
+
+    <article class="integrante">
+
+      <div class="integrante-datos">
+
+        <span class="iniciales">
+          LF
+        </span>
+
+        <p>
+          Fuentes Carpio, Luca
+        </p>
+
+      </div>
+
+      <a
+        class="boton-github"
+        href="https://github.com/lucafuncar-dotcom"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <img
+          src="/static/imagenes/github.png"
+          alt="GitHub"
+        >
+
+        GitHub
+
+      </a>
+
+    </article>
+
+
+    <!-- Caleb -->
+
+    <article class="integrante">
+
+      <div class="integrante-datos">
+
+        <span class="iniciales">
+          CF
+        </span>
+
+        <p>
+          Figueroa Gómez, Caleb
+        </p>
+
+      </div>
+
+      <a
+        class="boton-github"
+        href="https://github.com/EladrelFG"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <img
+          src="/static/imagenes/github.png"
+          alt="GitHub"
+        >
+
+        GitHub
+
+      </a>
+
+    </article>
+
+
+    <!-- Jeremy -->
+
+    <article class="integrante">
+
+      <div class="integrante-datos">
+
+        <span class="iniciales">
+          JR
+        </span>
+
+        <p>
+          Ramírez Pérez, Jeremy
+        </p>
+
+      </div>
+
+      <a
+        class="boton-github"
+        href="https://github.com/jeremyramirezperez-ui"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <img
+          src="/static/imagenes/github.png"
+          alt="GitHub"
+        >
+
+        GitHub
+
+      </a>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+{% endblock %}
+
+
+{% block scripts_adicionales %}
+{% endblock %}
